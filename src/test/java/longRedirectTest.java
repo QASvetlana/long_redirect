@@ -21,7 +21,7 @@ public class longRedirectTest {
         System.out.println(name);
 
 
-        if (statusCode != 200) {
+        while (statusCode == 200) {
             Response locations = RestAssured
                     .given()
                     .redirects()
@@ -31,12 +31,12 @@ public class longRedirectTest {
                     .andReturn();
             String location1 = locations.getHeader("Location");
             System.out.println(location1);
-        } else {
+        }
 
             System.out.println(200);
         }
     }
-}
+
 
 
 
